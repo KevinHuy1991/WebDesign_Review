@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nền tảng ôn tập lý thuyết và luyện bài tập điền vào chỗ trống môn Thiết Kế Web - Khoa CNTT FIT UTC2." />
+  <title>WebDesign Master - Ôn Tập Lý Thuyết & Bài Tập Điền Chỗ Trống | FIT UTC2</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- App Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#theory" class="brand" id="brandLogo">
+        <div class="brand-icon">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="brand-text">
+          <h1>WebDesign Master</h1>
+          <p>FIT UTC2 • GVHD: Ths. Nguyễn Thiện Dương</p>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Tabs -->
+      <nav class="nav-tabs" id="mainNav">
+        <button class="tab-btn active" data-tab="theory">
+          <i class="fa-solid fa-book-open"></i> Lý Thuyết
+        </button>
+        <button class="tab-btn featured" data-tab="fill-blank">
+          <i class="fa-solid fa-pen-to-square"></i> Điền Chỗ Trống
+          <span class="tab-badge" id="navBlankCount">73</span>
+        </button>
+        <button class="tab-btn" data-tab="flashcards">
+          <i class="fa-solid fa-clone"></i> Thẻ Ghi Nhớ
+        </button>
+        <button class="tab-btn" data-tab="quiz">
+          <i class="fa-solid fa-circle-question"></i> Trắc Nghiệm
+        </button>
+        <button class="tab-btn" data-tab="playground">
+          <i class="fa-solid fa-laptop-code"></i> Thực Hành
+        </button>
+        <button class="tab-btn" data-tab="cheatsheet">
+          <i class="fa-solid fa-table-list"></i> Tra Cứu
+        </button>
+      </nav>
+
+      <!-- Header Right Status & Controls -->
+      <div class="header-actions">
+        <div class="stat-pill streak" title="Chuỗi trả lời đúng liên tiếp">
+          <i class="fa-solid fa-fire"></i> <span id="headerStreak">0</span>
+        </div>
+        <div class="stat-pill score" title="Tổng điểm XP đạt được">
+          <i class="fa-solid fa-star"></i> <span id="headerScore">0</span> XP
+        </div>
+        <button class="icon-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh hiệu ứng">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <button class="icon-btn" id="themeToggleBtn" title="Chuyển chế độ Sáng / Tối">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-content">
+
+    <!-- ====================================================================
+         TAB 1: LÝ THUYẾT (THEORY HUB)
+         ==================================================================== -->
+    <section class="tab-panel active" id="panel-theory">
+      <div class="theory-hero">
+        <div class="theory-hero-text">
+          <h2>Hệ Thống Lý Thuyết Thiết Kế Web Toàn Diện</h2>
+          <p>Nắm vững trọn bộ kiến thức từ Chương 4 đến Chương 11: Ngôn ngữ HTML, HTML5 Semantic, CSS & CSS3 Layout, JavaScript, DOM & Sự kiện, jQuery và TypeScript.</p>
+        </div>
+        <div class="theory-controls">
+          <div class="search-input-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="theorySearchInput" placeholder="Tìm kiếm nội dung, thẻ, thuộc tính..." />
+          </div>
+          <button class="btn-secondary" id="expandAllTheoryBtn">
+            <i class="fa-solid fa-angles-down"></i> Mở tất cả
+          </button>
+        </div>
+      </div>
+
+      <!-- Chapter Navigation Pills -->
+      <div class="chapter-pills-bar" id="chapterPillsBar">
+        <!-- Rendered dynamically by JS -->
+      </div>
+
+      <!-- Chapter Detailed Content View -->
+      <div class="chapter-view-container" id="chapterContentContainer">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 2: BÀI TẬP ĐIỀN VÀO CHỖ TRỐNG (FILL-IN-THE-BLANK ARENA)
+         ==================================================================== -->
+    <section class="tab-panel" id="panel-fill-blank">
+      <!-- Stats Header -->
+      <div class="fb-stats-header">
+        <div class="fb-stats-metrics">
+          <div class="fb-metric-item">
+            <span class="fb-metric-label">Tiến Độ Làm Bài</span>
+            <span class="fb-metric-value" id="fbStatProgress">0 / 73</span>
+          </div>
+          <div class="fb-metric-item">
+            <span class="fb-metric-label">Số Câu Đúng</span>
+            <span class="fb-metric-value" style="color: var(--accent-emerald)" id="fbStatCorrect">0</span>
+          </div>
+          <div class="fb-metric-item">
+            <span class="fb-metric-label">Số Câu Sai</span>
+            <span class="fb-metric-value" style="color: var(--accent-rose)" id="fbStatIncorrect">0</span>
+          </div>
+          <div class="fb-metric-item">
+            <span class="fb-metric-label">Độ Chính Xác</span>
+            <span class="fb-metric-value" style="color: var(--accent-cyan)" id="fbStatAccuracy">0%</span>
+          </div>
+          <div class="fb-metric-item">
+            <span class="fb-metric-label">Chuỗi Hiện Tại</span>
+            <span class="fb-metric-value" style="color: var(--accent-amber)" id="fbStatStreak">0 🔥</span>
+          </div>
+        </div>
+        <div class="fb-progress-container">
+          <div class="fb-progress-bar-bg">
+            <div class="fb-progress-bar-fill" id="fbProgressBarFill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Controls Toolbar -->
+      <div class="fb-filter-bar">
+        <select class="fb-select" id="fbFilterChapter">
+          <option value="all">📚 Tất cả các chương (73 câu)</option>
+          <option value="4">Chương 4: Ngôn ngữ HTML (10 câu)</option>
+          <option value="5">Chương 5: HTML5 & Semantic (8 câu)</option>
+          <option value="6">Chương 6: Ngôn ngữ CSS (8 câu)</option>
+          <option value="7">Chương 7: CSS3 & Hiệu ứng (9 câu)</option>
+          <option value="8">Chương 8: Ngôn ngữ JavaScript (9 câu)</option>
+          <option value="9">Chương 9: JavaScript DOM (10 câu)</option>
+          <option value="10">Chương 10: Thư viện jQuery (9 câu)</option>
+          <option value="11">Chương 11: Ngôn ngữ TypeScript (10 câu)</option>
+        </select>
+
+        <select class="fb-select" id="fbFilterDifficulty">
+          <option value="all">🎯 Mọi độ khó</option>
+          <option value="Cơ bản">Cơ bản</option>
+          <option value="Trung bình">Trung bình</option>
+          <option value="Nâng cao">Nâng cao</option>
+        </select>
+
+        <select class="fb-select" id="fbFilterStatus">
+          <option value="all">⚡ Tất cả trạng thái</option>
+          <option value="unattempted">Chưa làm</option>
+          <option value="correct">Đã làm đúng</option>
+          <option value="incorrect">Đã làm sai</option>
+          <option value="bookmarked">⭐ Đã đánh dấu</option>
+        </select>
+
+        <button class="btn-secondary" id="fbShuffleBtn" title="Xáo trộn thứ tự câu hỏi ngẫu nhiên">
+          <i class="fa-solid fa-shuffle"></i> Xáo trộn
+        </button>
+
+        <button class="btn-secondary" id="fbResetProgressBtn" title="Đặt lại toàn bộ tiến độ bài tập">
+          <i class="fa-solid fa-rotate-left"></i> Làm lại từ đầu
+        </button>
+      </div>
+
+      <!-- Fill In Blank Main Dashboard Layout -->
+      <div class="fb-dashboard">
+        <!-- Question Interactive Card -->
+        <div class="fb-question-card" id="fbQuestionCard">
+          <div class="fb-card-top">
+            <div class="fb-card-badges">
+              <span class="fb-chip chapter" id="fbCardChapterBadge">Chương 4</span>
+              <span class="fb-chip diff-easy" id="fbCardDiffBadge">Cơ bản</span>
+              <span class="fb-chip" style="background: rgba(255,255,255,0.06); color: var(--text-muted)" id="fbCardTopicBadge">HTML Form</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 0.88rem; font-weight: 700; color: var(--text-muted)" id="fbCardQuestionIndex">Câu 1 / 73</span>
+              <button class="fb-btn-star" id="fbBookmarkBtn" title="Đánh dấu câu này để ôn lại">
+                <i class="fa-regular fa-star"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Question Prompt -->
+          <h3 class="fb-prompt-text" id="fbPromptText">
+            Đang tải câu hỏi...
+          </h3>
+
+          <!-- Interactive Code / Sentence Area -->
+          <div id="fbInteractiveArea">
+            <!-- Dynamic input injected here -->
+          </div>
+
+          <!-- Actions Bar -->
+          <div class="fb-actions-bar">
+            <div class="fb-btn-group-left">
+              <button class="btn-primary" id="fbCheckAnswerBtn">
+                <i class="fa-solid fa-circle-check"></i> Kiểm tra (Enter)
+              </button>
+              <button class="btn-secondary btn-hint" id="fbShowHintBtn">
+                <i class="fa-solid fa-lightbulb"></i> Gợi ý
+              </button>
+              <button class="btn-secondary btn-solution" id="fbShowSolutionBtn">
+                <i class="fa-solid fa-eye"></i> Xem đáp án
+              </button>
+              <button class="btn-secondary" id="fbRetryBtn">
+                <i class="fa-solid fa-arrow-rotate-right"></i> Nhập lại
+              </button>
+            </div>
+            <div class="fb-btn-group-right">
+              <button class="btn-secondary" id="fbPrevBtn" title="Câu trước">
+                <i class="fa-solid fa-arrow-left"></i> Câu trước
+              </button>
+              <button class="btn-secondary" id="fbNextBtn" title="Câu tiếp theo">
+                Câu sau <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Hint Feedback Box -->
+          <div class="fb-feedback-box hint-box" id="fbHintBox">
+            <h5><i class="fa-solid fa-lightbulb"></i> Gợi ý dành cho bạn:</h5>
+            <p id="fbHintText">Nội dung gợi ý...</p>
+          </div>
+
+          <!-- Explanation Feedback Box -->
+          <div class="fb-feedback-box explanation-box" id="fbExplanationBox">
+            <h5><i class="fa-solid fa-circle-info"></i> Giải thích chi tiết:</h5>
+            <div id="fbExplanationText">Nội dung giải thích...</div>
+          </div>
+        </div>
+
+        <!-- Question Navigator Sidebar -->
+        <aside class="fb-sidebar-panel">
+          <div class="fb-sidebar-header">
+            <h4><i class="fa-solid fa-list-ol"></i> Danh Sách Câu Hỏi</h4>
+            <span style="font-size: 0.8rem; color: var(--text-muted);" id="fbFilteredCount">73 câu</span>
+          </div>
+          <div class="fb-nav-grid" id="fbNavGrid">
+            <!-- 1..73 buttons injected by JS -->
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 3: THẺ GHI NHỚ (FLASHCARDS)
+         ==================================================================== -->
+    <section class="tab-panel" id="panel-flashcards">
+      <div class="flashcards-container">
+        <!-- Controls & Filter -->
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h2 style="font-size: 1.4rem; font-weight: 800;">Thẻ Ghi Nhớ Lật Mặt 3D</h2>
+            <p style="color: var(--text-secondary); font-size: 0.88rem;">Nhấp vào thẻ để lật xem đáp án và kiến thức trọng tâm.</p>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <select class="fb-select" id="fcFilterChapter">
+              <option value="all">Tất cả các chương</option>
+              <option value="4">Chương 4: HTML</option>
+              <option value="5">Chương 5: HTML5</option>
+              <option value="6">Chương 6: CSS</option>
+              <option value="7">Chương 7: CSS3</option>
+              <option value="8">Chương 8: JavaScript</option>
+              <option value="9">Chương 9: JS DOM</option>
+              <option value="10">Chương 10: jQuery</option>
+              <option value="11">Chương 11: TypeScript</option>
+            </select>
+            <span style="font-weight: 700; color: var(--text-muted); font-size: 0.9rem;" id="fcProgressIndex">1 / 26</span>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card -->
+        <div class="flashcard-wrapper" id="flashcardElement">
+          <div class="flashcard-inner" id="flashcardInner">
+            <div class="flashcard-face flashcard-front">
+              <div class="fc-tag" id="fcFrontTag">HTML / XHTML</div>
+              <div class="fc-question-text" id="fcFrontText">Nội dung câu hỏi mặt trước...</div>
+              <div class="fc-hint-flip">
+                <i class="fa-solid fa-arrows-rotate"></i> Nhấp chuột vào thẻ để lật xem đáp án
+              </div>
+            </div>
+            <div class="flashcard-face flashcard-back">
+              <div class="fc-tag" style="color: #a5b4fc" id="fcBackTag">Đáp án & Giải thích</div>
+              <div class="fc-answer-text" id="fcBackText">Nội dung đáp án mặt sau...</div>
+              <div class="fc-hint-flip">
+                <i class="fa-solid fa-arrows-rotate"></i> Nhấp chuột để lật lại mặt trước
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Review Buttons -->
+        <div class="fc-controls">
+          <button class="btn-secondary" id="fcPrevBtn">
+            <i class="fa-solid fa-chevron-left"></i> Thẻ trước
+          </button>
+          <button class="btn-secondary" style="border-color: var(--accent-rose); color: var(--accent-rose);" id="fcNeedReviewBtn">
+            <i class="fa-solid fa-xmark"></i> Cần ôn lại
+          </button>
+          <button class="btn-secondary" style="border-color: var(--accent-emerald); color: var(--accent-emerald);" id="fcMasteredBtn">
+            <i class="fa-solid fa-check"></i> Đã thuộc
+          </button>
+          <button class="btn-secondary" id="fcNextBtn">
+            Thẻ tiếp theo <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 4: TRẮC NGHIỆM TỔNG HỢP (MOCK QUIZ)
+         ==================================================================== -->
+    <section class="tab-panel" id="panel-quiz">
+      <div class="quiz-container">
+        <div class="quiz-card">
+          <div class="quiz-header">
+            <div>
+              <span class="fb-chip chapter" id="quizChapterBadge">Chương 4</span>
+              <span style="margin-left: 8px; font-size: 0.9rem; font-weight: 700; color: var(--text-muted);" id="quizQuestionIndex">Câu 1 / 18</span>
+            </div>
+            <div class="stat-pill score" id="quizScorePill">
+              Điểm: <span id="quizCurrentScore">0</span>
+            </div>
+          </div>
+
+          <h3 class="quiz-question-title" id="quizQuestionTitle">
+            Đang tải câu hỏi trắc nghiệm...
+          </h3>
+
+          <div class="quiz-options-list" id="quizOptionsList">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <!-- Explanation box -->
+          <div class="fb-feedback-box explanation-box" id="quizExplanationBox" style="margin-bottom: 20px;">
+            <h5><i class="fa-solid fa-circle-check"></i> Giải thích:</h5>
+            <p id="quizExplanationText">Giải thích chi tiết...</p>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button class="btn-secondary" id="quizRestartBtn">
+              <i class="fa-solid fa-rotate-left"></i> Làm lại bài thi
+            </button>
+            <button class="btn-primary" id="quizNextBtn" style="display: none;">
+              Câu tiếp theo <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 5: CODE PLAYGROUND (INTERACTIVE SANDBOX)
+         ==================================================================== -->
+    <section class="tab-panel" id="panel-playground">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h2 style="font-size: 1.4rem; font-weight: 800;">Playground Thực Hành Trực Tiếp</h2>
+          <p style="color: var(--text-secondary); font-size: 0.88rem;">Chỉnh sửa HTML, CSS và JavaScript và xem kết quả chạy ngay lập tức!</p>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <select class="fb-select" id="playgroundTemplateSelect">
+            <option value="clock">⏱️ Mẫu: Đồng hồ điện tử (JS DOM & setInterval)</option>
+            <option value="form">📋 Mẫu: Form đăng ký & xác thực JS</option>
+            <option value="flex">🎨 Mẫu: Bố cục Flexbox & Card Animation CSS3</option>
+            <option value="canvas">🖌️ Mẫu: Đồ họa Canvas 2D HTML5</option>
+          </select>
+          <button class="btn-primary" id="playgroundRunBtn">
+            <i class="fa-solid fa-play"></i> Chạy mã
+          </button>
+        </div>
+      </div>
+
+      <div class="playground-container">
+        <!-- Editor Left Pane -->
+        <div class="editor-pane">
+          <div class="pane-header">
+            <h4><i class="fa-solid fa-code"></i> Mã Nguồn (HTML + CSS + JS)</h4>
+            <button class="btn-copy-code" id="playgroundCopyBtn"><i class="fa-regular fa-copy"></i> Sao chép</button>
+          </div>
+          <textarea class="editor-textarea" id="playgroundTextarea" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Preview Right Pane -->
+        <div class="preview-pane">
+          <div class="pane-header">
+            <h4><i class="fa-solid fa-display"></i> Giao Diện Hiển Thị Trực Tiếp</h4>
+            <span style="font-size: 0.78rem; color: var(--accent-emerald);">● Live Sandboxed</span>
+          </div>
+          <iframe class="preview-iframe" id="playgroundIframe" sandbox="allow-scripts allow-modals"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 6: TRA CỨU CÚ PHÁP (CHEAT SHEET)
+         ==================================================================== -->
+    <section class="tab-panel" id="panel-cheatsheet">
+      <div class="cheatsheet-container">
+        <div class="cheatsheet-search-bar">
+          <div class="search-input-box" style="flex: 1;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="cheatsheetSearchInput" placeholder="Tra cứu nhanh thẻ HTML, CSS property, hàm DOM, jQuery, TypeScript..." />
+          </div>
+          <select class="fb-select" id="cheatsheetCategoryFilter">
+            <option value="all">Tất cả danh mục</option>
+            <option value="HTML">HTML</option>
+            <option value="HTML5">HTML5</option>
+            <option value="CSS">CSS</option>
+            <option value="CSS3">CSS3</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="JS DOM">JS DOM</option>
+            <option value="jQuery">jQuery</option>
+            <option value="TypeScript">TypeScript</option>
+          </select>
+        </div>
+
+        <div class="table-responsive">
+          <table class="theory-table">
+            <thead>
+              <tr>
+                <th style="width: 140px;">Danh Mục</th>
+                <th style="width: 220px;">Tên / Cú Pháp Thẻ</th>
+                <th style="width: 320px;">Ví Dụ Cú Pháp</th>
+                <th>Công Dụng & Ghi Chú Trọng Tâm</th>
+              </tr>
+            </thead>
+            <tbody id="cheatsheetTableBody">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Canvas for celebratory Confetti -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Floating Toast Notification -->
+  <div class="toast-notification" id="toastNotification">
+    <i class="fa-solid fa-circle-check" id="toastIcon" style="color: var(--accent-emerald); font-size: 1.2rem;"></i>
+    <span id="toastMessage">Thông báo ứng dụng</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p><strong>Thiết Kế Web (Web Design)</strong> • Khoa Công Nghệ Thông Tin - Phân hiệu Trường Đại Học Giao Thông Vận Tải tại TP.HCM (FIT - UTC2)</p>
+    <p style="margin-top: 4px;">Giảng viên phụ trách: Ths. Nguyễn Thiện Dương • Nền tảng học tập & ôn thi tương tác chất lượng cao.</p>
+  </footer>
+
+  <!-- Data Files -->
+  <script src="js/theory-data.js"></script>
+  <script src="js/fill-blank-data.js"></script>
+  <script src="js/flashcards-data.js"></script>
+  <script src="js/quiz-data.js"></script>
+  <script src="js/cheatsheet-data.js"></script>
+
+  <!-- Main Application Script -->
+  <script src="js/app.js"></script>
+</body>
+</html>
